@@ -7,6 +7,7 @@ to 3 (0x03) we increment by 3 instead only print every 3rd character.
 
 Assignment 2:
 
+
 Your subroutine hex2asc is called with an integer-value as an argument in register a0 and
 returns a return-value in register a0. If the argument is 17, what is the return-value? Why?
 
@@ -15,7 +16,33 @@ the output would be 1.
 1 in decimal. 
 
 
+
 If your solution contains a conditional-branch instruction: which input values cause the
 instruction to branch to another location? This is called a taken branch.
 
 10 - 15
+
+
+
+Assingment 3:
+
+
+Which registers are saved and restored by your subroutine? Why?
+
+s0 and s1 are saved and restored so they can be used temporarily to store the NBCD time and the address for where to 
+save the ASCII time string. s0 and s1 is used because they are calle-saved, meaning they are safe across the function
+calls to "hexasc", since if it uses them, the function also has to restore them. The content of a0 is also saved
+when it contains an ASCII value returned by "hexasc".
+
+
+
+Which registers are used but not saved? Why are these not saved?
+
+t0 and t1 are used for temporarily in the process of isolating parts of the NBCD time. They are not saved as they 
+are caller-saved, meaning whatever called the subroutine is responsible for saving them if it needs them after. 
+ 
+
+
+Assume the time is 16:53. Which lines of your code handle the '5'?
+
+line 142 - 146 (28 - 32 in subroutine)  
