@@ -45,4 +45,21 @@ are caller-saved, meaning whatever called the subroutine is responsible for savi
 
 Assume the time is 16:53. Which lines of your code handle the '5'?
 
-line 142 - 146 (28 - 32 in subroutine)  
+line 142 - 146 (28 - 32 in subroutine)
+
+
+
+Assignment 4:
+
+
+If the argument value in register a0 is zero, which instructions in your subroutine are
+executed? How many times each? Why?
+
+The subroutine will execute down to the 5th row that has the condition for the outer loop (outer counter >=0).
+
+
+
+Repeat the previous question for a negative number: -1.
+Same thing will happen, since the condition is if the counter is less than or equal 0).
+
+

@@ -54,7 +54,7 @@ timetemplate:
 	jal     display_string
 	
 	# wait a little
-	li	a0, 2		# ms
+	li	a0, 1000	# ms
 	jal	delay
 	
 	# call tick
@@ -199,4 +199,20 @@ letter:
   	
  
 delay:
-	jr	ra
+	mv 	t0, a0		# get ms to deley
+	li 	t2, 40		# inner loop counter threshold
+
+outerloop:
+	ble    	t0, zero, exit	# loop if ms counter (t0) is >0
+	addi 	t0, t0, -1	# decrement ms counter
+	li 	t1, 0		# reset inner counter
+
+innerloop:
+	addi	t1, t1, 1		#increment counter
+	ble    	t1, t2, innerloop	#loop if inner counter (t1) is within threshold
+	
+	j	outerloop
+
+exit:						
+	jr	ra		# exit delay
+	
