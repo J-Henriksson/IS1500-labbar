@@ -11,21 +11,37 @@
 
 #define COLUMNS 6
 
+int is_prime(int n) {
+  if (n <= 1) return 0;        
+  if (n <= 3) return 1;        
+  if (n % 2 == 0) return 0;
+
+  int i = 3;
+  while (i <= n / i) {         
+    if (n % i == 0) return 0;
+    i += 2;                 
+    }
+    return 1;
+}
+
+
+void print_number(int value) {
+    static int count = 0;  // keeps track across calls
+
+    printf("%d ", value);
+    count++;
+
+    if (count % COLUMNS == 0) {
+        printf("\n");
+    }
+}
+
 void print_primes(int n){
-    // Should print out all prime numbers less than 'n'
-    // with the following formatting. Note that
-    // the number of columns is stated in the define
-    // COLUMNS
-    
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("\n");
-    printf("%10d ", n);
-    printf("%10d ", n);
+    for (int i = 2; i <= n; i++) {
+        if (is_prime(i)) {
+            print_number(i);
+        }
+    }
     printf("\n");
 }
 
