@@ -10,24 +10,40 @@
 #include <stdlib.h>
 
 #define COLUMNS 6
+int primes_in_column = 0;
+
+void print_number(int n) {
+  if (primes_in_column == COLUMNS) {  //insert newline if at last column
+    printf("\n");
+    primes_in_column = 0; //reset column counter
+  } 
+  printf("%10d ", n);
+  primes_in_column++;
+}
+
+int is_prime(int n){
+  if (n < 2) return 0;        //no prime < 2
+  if ( n == 2) return 1;      //special case 
+  if (n % 2 == 0) return 0;   //check if even
+
+  for (int i = 3; i*i <= n; i += 2) {  //check all odd numbers up to sqrt(n)
+    if (n%i == 0) {
+      return 0;
+    }
+  }
+  return 1;
+}
 
 void print_primes(int n){
-    // Should print out all prime numbers less than 'n'
-    // with the following formatting. Note that
-    // the number of columns is stated in the define
-    // COLUMNS
-    
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("\n");
-    printf("%10d ", n);
-    printf("%10d ", n);
-    printf("\n");
+    for (int i = 2; i <= n; i++) {
+      if (is_prime(i))
+      {
+        print_number(i);
+      }
+    } 
 }
+
+
 
 // 'argc' contains the number of program arguments, and
 // 'argv' is an array of char pointers, where each
