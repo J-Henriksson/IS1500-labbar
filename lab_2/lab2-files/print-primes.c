@@ -1,7 +1,8 @@
 /*
  print-primes.c
  By David Broman.
- Last modified: 2015-09-15
+ Edited by Viktor Eriksson
+ Last modified: 2025-09-16
  This file is in the public domain.
 */
 
@@ -35,12 +36,13 @@ int is_prime(int n){
 }
 
 void print_primes(int n){
-    for (int i = 2; i <= n; i++) {
+    for (int i = 2; i <= n; i++) {  //loop through all numbers up to n, and print if prime
       if (is_prime(i))
       {
         print_number(i);
       }
     } 
+    printf("\n"); //new line for readability
 }
 
 

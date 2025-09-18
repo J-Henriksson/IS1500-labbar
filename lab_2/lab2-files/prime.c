@@ -1,8 +1,8 @@
 /*
  prime.c
  By David Broman.
- Last modified: 2015-09-15
- edited by Viktor Eriksson 2025-09-16
+ edited by Viktor Eriksson 
+ Last modified: 2025-09-16
  This file is in the public domain.
 */
 
@@ -15,7 +15,7 @@ int is_prime(int n){
   if (n % 2 == 0) return 0;   //check if even
 
   for (int i = 3; i*i <= n; i += 2) {  //check all odd numbers up to sqrt(n)
-    if (n%i == 0) {
+    if (n%i == 0) { //not prime if divisible with i
       return 0;
     }
   }

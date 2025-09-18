@@ -32,14 +32,12 @@ void endian_proof(const char* c){
 }
 
 void copycodes(char* text, int* list, int* counter) {
-  while ((*text) != 0)
-  {
-    (*list) = (int) (*text);
+  while ((*text) != 0) {
+    (*list) = (int) (*text);  
     
     text++;   
     list++;
     (*counter)++;
-    printf("text: %d list: %d, counter: %d \n", *text, *list, *counter);
   }
 }
 

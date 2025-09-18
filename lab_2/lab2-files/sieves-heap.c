@@ -31,10 +31,10 @@ void print_sieves(int n) {
     }
     
     int i = 2;
-    for (int i = 2; i*i <= n; i++)
+    for (int i = 2; i*i <= n; i++)  //loop from 2 to sqrt(n)
     {
 
-        if (is_prime[i] == 1) { 
+        if (is_prime[i] == 1) {     //if prime, mark multiples as not prime
             int j = i*i;
             while (j <= n) {
                 is_prime[j] = 0;
@@ -43,7 +43,7 @@ void print_sieves(int n) {
         }
     }
 
-    for (int i = 0; i <= n; i++) {
+    for (int i = 0; i <= n; i++) {  //print numbers stil marked as prime
         if (is_prime[i]) {
             print_number(i);
         }
