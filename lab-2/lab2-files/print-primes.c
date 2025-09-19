@@ -25,15 +25,15 @@ int is_prime(int n) {
 }
 
 
-void print_number(int value) {
+void print_number(int prime) {
     static int count = 0;  // keeps track across calls
-
-    printf("%d ", value);
-    count++;
 
     if (count % COLUMNS == 0) {
         printf("\n");
     }
+
+    printf("%10d ", prime);
+    count++;
 }
 
 void print_primes(int n){
