@@ -10,10 +10,10 @@
 ###################
 # Macros for RARS #
 ###################
-.macro	PUSH (%reg)
-	addi	sp,sp,-4
-	sw	%reg,0(sp) 
-.end_macro
+#.macro	PUSH (%reg)
+#	addi	sp,sp,-4
+#	sw	%reg,0(sp) 
+#.end_macro
 
 #.macro	POP (%reg)
 #	lw	%reg,0(sp)
@@ -152,8 +152,8 @@ time2string:
 	sb	t0, 5(s0)	#add null byte buffer
 		
 	lw      ra,0(sp)
-	sw	s0, 4(sp)
-	sw	s1, 8(sp)
+	lw	s0, 4(sp)
+	lw	s1, 8(sp)
 	addi    sp,sp,12
 	
 	jr      ra
@@ -198,7 +198,7 @@ letter:
  
 delay:
 	mv 	t0, a0		# get ms to deley
-	li 	t2, 40		# inner loop counter threshold
+	li 	t2, 1000000	# inner loop counter threshold
 
 outerloop:
 	ble    	t0, zero, exit	# loop if ms counter (t0) is >0

@@ -1,5 +1,6 @@
 # analyze.S
 # Written 2015 by F Lundevall
+# edited 2025-09-02 by Viktor Eriksson
 # Ported 2024/07 by W Szczerek (from MIPS to RISC-V)
 # Copyright abandonded - this file is in the public domain.
 
