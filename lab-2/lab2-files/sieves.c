@@ -35,8 +35,7 @@ static void print_sieves(int n) {
     for (int i = 2; i <= n; i++) mark[i] = 1;
 
     // sieve algorithm 
-    int limit = (int)floor(sqrt((double)n));
-    for (int p = 2; p <= limit; p++) {
+    for (int p = 2; p*p <= n; p++) {
         if (mark[p]) {
             // start at p*p to avoid re-marking same position
             long long start = (long long)p * (long long)p;

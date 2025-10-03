@@ -28,8 +28,7 @@ static void print_sieves(int n) {
     mark[0] = 0; mark[1] = 0;
     for (int i = 2; i <= n; i++) mark[i] = 1;
 
-    int limit = (int)floor(sqrt((double)n));
-    for (int p = 2; p <= limit; p++) {
+    for (int p = 2; p*p <= n; p++) {
         if (mark[p]) {
             long long start = (long long)p * (long long)p;
             for (long long m = start; m <= n; m += p) {
@@ -38,9 +37,19 @@ static void print_sieves(int n) {
         }
     }
 
+    int recent_prime = 0;
+    int distance_4 = 0;
     for (int i = 2; i <= n; i++) {
-        if (mark[i]) print_number(i);
+        if (mark[i]) {
+            print_number(i);
+            if (i - recent_prime == 4) {
+                distance_4++;
+            }
+            recent_prime = i;
+        }
     }
+    printf("\n");
+    printf("The distance between two primes has been 4: %d, times", distance_4);
     printf("\n");
 
     free(mark);  // don’t forget

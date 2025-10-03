@@ -13,8 +13,8 @@ char* text1 = "This is a string.";
 char* text2 = "Yet another thing.";
 
 
-int list1[80 / sizeof(int)] = {0};
-int list2[80 / sizeof(int)] = {0};
+int list1[20] = {0};
+int list2[20] = {0};
 int counter = 0;
 
 
